@@ -675,5 +675,3 @@ Assembly uses many different types of jumps, these normally reference some sort 
 |JCXZ           |Jump if CX register is 0    |               | CX == 0            |
 |JECXZ          |Jump if ECX register is 0   |               | ECX == 0           |
 
-
-# Chapter 2 - File Formats
