@@ -586,35 +586,94 @@ The ECX register is also known as the counter register. This register is used in
 
 ### 1.1.4 Stack Pointer
 
+The ESP register is the stack pointer, this register together with the SS register describe the stack area of a thread. SS contains the descriptor of the stack segment and ESP is the index that points to the current position within the stack.
+
 ### 1.1.5 Source and Destination Indices
+
+The ESI and EDI registers are the source and destination index registers used in string operations. ESI contains the source address and EDI contains the destination address.
 
 ### 1.1.6 Base Pointer
 
-### 1.1.7 Instruction Pointer
+The EBP register is called the base pointer and its most common use is to point to the base of the stack frame during function calls. 
 
-### 1.1.8 Floating Point Registers
+### 1.1.7 EFlags Register
 
-### 1.1.9 Control Registers
-
-### 1.1.10 EFlags Register
+The EFlags register lets us get information about the last operation performed. Everything from overflow in multiplication / division, to carry in subtraction.
 
 #### Bit 0 - Carry Flag
 
+The carry flag is mostly used for the detected of carrying or borrowing in arithmetic operations and is set if the bit width result of the last such operation exceeds the width of the ALU (arithmetic logic unit).
+
 #### Bit 2 - Parity Flag
+
+The parity flag is set to 1 in case the number of 1s in the least significant byte is even; otherwise the flag is set to 0.
 
 #### Bit 4 - Adjust Flag
 
+The adjust flag signals when a carry or borrow occurred in the four least significant bits and is primarily used with binary coded decimal arithmetics.
+
 #### Bit 6 - Zero Flag
+
+The zero flag is set when the result of an arithmetic or bitwise operation is 0. This includes operations that do not store the result (comparison or test). 
 
 #### Bit 7 - Sign Flag
 
+The sign flag is set when the last mathematical operation resulted in a negative number.
+
 #### Bit 8 - Trap Flag
+
+The trap flag causes a single step interrupt after every executed instruction.
 
 #### Bit 9 - Interrupt Enable Flag
 
+The interrupt enable flag defines whether the processor will or will not react to incoming interrupts.
+
 #### Bit 10 - Direction Flag
 
+The direction flag controls the direction of string operations. An operation is performed from the lower address to the higher address if the flag is reset (0) or from the higher address to the lower address if the flag is set (1).
+
 #### Bit 11 - Overflow Flag
+
+The overflow flag is set when the result of the operation is either too small or too big a number to fit into the destination operand.  
+
+### 1.1.8 Different Types of Jumps
+
+Assembly uses many different types of jumps, these normally reference some sort of flag, here is a table of all the jumps and what they check:
+
+|Instruction    |Description                 |Signed-ness    |Flags               |
+|:-------------:|:-------------------------: |:-------------:|:------------------:|
+|JO             |Jump if overflow            |               | OF == 1            |
+|JNO            |Jump if not overflow        |               | OF == 0            |
+|JS             |Jump if sign                |               | SF == 1            |
+|JNS            |Jump if not sign            |               | SF == 0            |
+|JE             |Jump if equal               |               | ZF == 1            |
+|JZ             |Jump if zero                |               | ZF == 1            |
+|JNE            |Jump if not equal           |               | ZF == 0            |
+|JNZ            |Jump if not zero            |               | ZF == 0            |
+|JB             |Jump if below               | Unsigned      | CF == 1            |
+|JNAE           |Jump if not above or equal  | Unsigned      | CF == 1            |
+|JC             |Jump if carry               | Unsigned      | CF == 1            |
+|JNB            |Jump if not below           | Unsigned      | CF == 0            |
+|JAE            |Jump if above or equal      | Unsigned      | CF == 0            |
+|JNC            |Jump if not carry           | Unsigned      | CF == 0            |
+|JBE            |Jump if below or equal      | Unsigned      | CF == 1 Or ZF == 1 |
+|JNA            |Jump if not above           | Unsigned      | CF == 1 Or ZF == 1 |
+|JA             |Jump if above               | Unsigned      | CF == 0 Or ZF == 0 |
+|JNBE           |Jump if not below or equal  | Unsigned      | CF == 0 Or ZF == 0 |
+|JL             |Jump if less                | Signed        | SF != OF           |
+|JNGE           |Jump if not greater or equal| Signed        | SF != OF           |
+|JGE            |Jump if greater or equal    | Signed        | SF == OF           |
+|JNL            |Jump if not less            | Signed        | SF == OF           |
+|JLE            |Jump if less or equal       | Signed        | ZF == 1 OR SF != OF|
+|JNG            |Jump if not greater         | Signed        | ZF == 1 OR SF != OF|
+|JG             |Jump if greater             | Signed        | ZF == 0 OR SF == OF|
+|JNLE           |Jump if not less or equal   | Signed        | ZF == 0 OR SF == OF|
+|JP             |Jump if parity              |               | PF == 1            |
+|JPE            |Jump if parity even         |               | PF == 1            |
+|JNP            |Jump if not parity          |               | PF == 0            |
+|JPO            |Jump if parity odd          |               | PF == 0            |
+|JCXZ           |Jump if CX register is 0    |               | CX == 0            |
+|JECXZ          |Jump if ECX register is 0   |               | ECX == 0           |
 
 
 # Chapter 2 - File Formats
