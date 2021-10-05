@@ -6,6 +6,7 @@ MOV AL, 1
 SUB AH, AL
 
 JZ true
+JMP false
 
 true:
 MOV AX, 1
