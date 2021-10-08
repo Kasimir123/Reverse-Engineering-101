@@ -6,8 +6,9 @@ Each chapter also contains some sample files that are used in the lectures to be
 
 <center>
 
-|Day     |Video                                             |
-|:------:|:------------------------------------------------:|
-|Day 0   |https://www.youtube.com/watch?v=x0FY7BwyP2I       |
+|Day     |Topic                          |Video                                             |
+|:------:|:-----------------------------:|:------------------------------------------------:|
+|Day 0   |Syllabus and Assembly          |https://www.youtube.com/watch?v=x0FY7BwyP2I       |
+|Day 1   |Disassembly                    |https://youtu.be/Ittdfu8v-E8                      |
 
 </center>
