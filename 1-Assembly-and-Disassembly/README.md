@@ -1,5 +1,3 @@
-
-
 # Chapter 1 - Assembly and Disassembly
 
 In this chapter we will be going over assembly and some basic disassembly. We will primarily be focusing on x86 in this chapter. 
