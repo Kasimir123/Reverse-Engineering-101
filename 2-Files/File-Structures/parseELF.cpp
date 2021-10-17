@@ -88,8 +88,8 @@ void parseAndPrint(char *bytes)
 }
 
 const char *PHTYPE[] = {
-    "PT_NULL", "PT_LOAD", "PT_DYNAMIC", "PT_INTERP", "PT_NOTE",
-    "PT_SHLIB", "PT_PHDR", "PT_TLS" 
+    "PT_NULL   ", "PT_LOAD   ", "PT_DYNAMIC", "PT_INTERP ", "PT_NOTE   ",
+    "PT_SHLIB  ", "PT_PHDR   ", "PT_TLS    " 
 };
 
 // Section header types
@@ -243,13 +243,13 @@ int main(int argc, char **argv, char **envp)
                 if (phdr[i].p_type < 8)
                     std::cout << "Type: " << PHTYPE[phdr[i].p_type];
                 else
-                    std::cout << "Type: " << std::hex << phdr[i].p_type;
+                    std::cout << "Type: " << std::hex << phdr[i].p_type << "\t";
 
                 std::cout << "\tOffset: " << std::dec << phdr[i].p_offset << std::endl << std::endl;
                 
             }
 
-            std::cout << "\nSection Header Table\n" << std::endl;
+            std::cout << "\nSection Header Tables\n" << std::endl;
 
             for (int i = 0; i < hdr->e_shnum; i++)
             {
