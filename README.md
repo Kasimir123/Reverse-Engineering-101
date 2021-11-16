@@ -10,5 +10,6 @@ Each chapter also contains some sample files that are used in the lectures to be
 |:------:|:-----------------------------:|:------------------------------------------------:|
 |Day 0   |Syllabus and Assembly          |https://www.youtube.com/watch?v=x0FY7BwyP2I       |
 |Day 1   |Disassembly                    |https://youtu.be/Ittdfu8v-E8                      |
+|Day 2   |Files.                         |https://youtu.be/wiEhHbQo1-U                      |
 
 </center>
